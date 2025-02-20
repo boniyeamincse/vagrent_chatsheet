@@ -29,17 +29,15 @@ Be sure that you are in the same directory as the Vagrantfile when running these
 
     🎯VirtualBox (Recommended) - Download here
 
-     🎯VMware (Requires Vagrant VMware plugin)
+    🎯VMware (Requires Vagrant VMware plugin)
 
-      🎯Hyper-V (Available on Windows Pro/Enterprise)
+   🎯Hyper-V (Available on Windows Pro/Enterprise)
 
-        🎯Docker (For containerized environments)
+    🎯Docker (For containerized environments)
 
 ## Download and install Vagrant:
 
 Download Vagrant
-
-
 
 
 
