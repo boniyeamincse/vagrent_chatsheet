@@ -19,6 +19,31 @@ Typing `vagrant` from the command line will display a list of all available comm
 
 Be sure that you are in the same directory as the Vagrantfile when running these commands!
 
+
+
+# Installing Vagrant
+
+## Prerequisites
+
+1. Install a virtualization provider:
+
+    🎯VirtualBox (Recommended) - Download here
+
+     🎯VMware (Requires Vagrant VMware plugin)
+
+      🎯Hyper-V (Available on Windows Pro/Enterprise)
+
+        🎯Docker (For containerized environments)
+
+## Download and install Vagrant:
+
+Download Vagrant
+
+
+
+
+
+
 # Creating a VM
 - `vagrant init`           -- Initialize Vagrant with a Vagrantfile and ./.vagrant directory, using no specified base image. Before you can do vagrant up, you'll need to specify a base image in the Vagrantfile.
 - `vagrant init <boxpath>` -- Initialize Vagrant with a specific box. To find a box, go to the [public Vagrant box catalog](https://app.vagrantup.com/boxes/search). When you find one you like, just replace it's name with boxpath. For example, `vagrant init ubuntu/trusty64`.
