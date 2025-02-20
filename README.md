@@ -87,5 +87,68 @@ Download Vagrant
 # Plugins
 - [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater) : `$ vagrant plugin install vagrant-hostsupdater` to update your `/etc/hosts` file automatically each time you start/stop your vagrant box.
 
+# Advanced Vagrant Usage
+
+## Configuring a Vagrantfile
+
+Customize the Vagrantfile to define the VM configuration:
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+  end
+end
+```
+
+- `config.vm.box` – Defines the base image.
+- `config.vm.network` – Sets up networking (e.g., private, public, bridged).
+- `config.vm.provider` – Configures the virtualization provider (e.g., VirtualBox, VMware).
+
+## Provisioning with Shell Scripts
+
+Automate VM setup using shell provisioning:
+
+```ruby
+config.vm.provision "shell", inline: <<-SHELL
+  apt-get update
+  apt-get install -y nginx
+SHELL
+```
+
+This installs Nginx automatically when the VM is started.
+
+## Using Multiple Machines
+
+Define multiple VMs in the Vagrantfile:
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.define "web" do |web|
+    web.vm.box = "ubuntu/trusty64"
+  end
+  config.vm.define "db" do |db|
+    db.vm.box = "ubuntu/trusty64"
+  end
+end
+```
+
+Start them with:
+
+```sh
+vagrant up web
+vagrant up db
+```
+
+## Conclusion
+
+Vagrant is a powerful tool for managing virtualized development environments. By using a Vagrantfile, you can automate and share reproducible environments with ease. With this cheatsheet, you now have a quick reference for the most commonly used Vagrant commands and configurations.
+
+For more details, check out the [official Vagrant documentation](https://www.vagrantup.com/docs).
+
+
+
 # Notes
 - If you are using [VVV](https://github.com/varying-vagrant-vagrants/vvv/), you can enable xdebug by running `vagrant ssh` and then `xdebug_on` from the virtual machine's CLI.
